@@ -53,7 +53,6 @@ class NeoPixel(threading.Thread):
     def update_leds(self):
         for i, state in enumerate(self.led_state):
             color = '#{:02x}{:02x}{:02x}'.format(*state)
-            print('set', i, state, color)
             self.canvas.itemconfig(self.leds[i], fill=color)
 
     def write(self, *args):
@@ -64,12 +63,11 @@ class NeoPixelRing(NeoPixel):
     LED_RADIUS = 10
 
     def create_canvas(self):
-        circ = self.circ = self.LED_RADIUS * self.led_count
+        self.circ = self.LED_RADIUS * self.led_count
 
-        height, _ = self.point_from_angle(0)
+        height, _ = self.point_from_angle(90)
         width = height = height + self.LED_RADIUS*2
 
-        print('c', circ, 'h', height, 'w', width)
         self.canvas = tk.Canvas(
             self.root,
             bg='white',
@@ -89,7 +87,7 @@ class NeoPixelRing(NeoPixel):
         return self.canvas.create_oval(x-r, y-r, x+r, y+r, fill='black')
 
     def point_from_angle(self, angle):
-        angle_r = math.radians(angle)
+        angle_r = math.radians((angle-90) % 360)
 
         r_led = self.LED_RADIUS
         r_ring = self.circ//2
