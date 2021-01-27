@@ -14,13 +14,20 @@ class NeoPixel(threading.Thread):
         self.led_count = led_count
         self.leds = []
         self.led_state = [(0, 0, 0)] * led_count
+        self.started = False
         self.start()
+
+        while not self.started:
+            time.sleep(0.1)
 
     def run(self):
         self.root = tk.Tk()
         self.create_canvas()
         self.leds = [self.draw_led(x) for x in range(self.led_count)]
         self.canvas.pack()
+
+        self.started = True
+
         tk.mainloop()
 
     def create_canvas(self):
