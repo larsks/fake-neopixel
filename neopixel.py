@@ -1,3 +1,9 @@
+'''tkinter-based simulation of Micropython neopixel module.
+
+See https://docs.micropython.org/en/latest/esp8266/tutorial/neopixel.html
+for API documentation.
+'''
+
 import math
 import threading
 import time
@@ -5,8 +11,8 @@ import tkinter as tk
 
 
 class NeoPixel(threading.Thread):
-    LED_RADIUS = 6
-    LED_PADDING = 5
+    LED_RADIUS = 6      # How big are LEDs?
+    LED_PADDING = 5     # How much spacing in between?
 
     def __init__(self, pin, led_count):
         super().__init__(daemon=True)
