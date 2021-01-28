@@ -8,6 +8,12 @@ The `NeoPixel` class creates a horizontal array of LEDs, while the
 
 ![Example of NeoPixelRing](images/cycle.gif)
 
+## Examples
+
+- `PYTHONPATH=$PWD python examples/clock.py`
+- `PYTHONPATH=$PWD python examples/cycle1.py`
+- `PYTHONPATH=$PWD python examples/cycle2.py`
+
 ## Requirements
 
 This requires the `tkinter` module.
