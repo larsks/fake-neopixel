@@ -72,7 +72,7 @@ class NeoPixelRing(NeoPixel):
         self.circ = self.LED_RADIUS * self.led_count
 
         height, _ = self.point_from_angle(90)
-        width = height = height + self.LED_RADIUS*2
+        width = height = height + self.LED_RADIUS*4
 
         self.canvas = tk.Canvas(
             self.root,
@@ -97,8 +97,8 @@ class NeoPixelRing(NeoPixel):
 
         r_led = self.LED_RADIUS
         r_ring = self.circ//2
-        x = int(r_ring * math.cos(angle_r)) + r_ring + r_led
-        y = int(r_ring * math.sin(angle_r)) + r_ring + r_led
+        x = int(r_ring * math.cos(angle_r)) + r_ring + r_led*2
+        y = int(r_ring * math.sin(angle_r)) + r_ring + r_led*2
 
         return (x, y)
 
