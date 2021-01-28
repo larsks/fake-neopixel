@@ -12,7 +12,10 @@ while True:
     for i in range(60):
         np[i] = (0, 0, 0)
 
-    np[s] = (0, 0, 255)
+    for i in range(6):
+        ci = 30*i
+        np[(s-i) % 60] = (0, 255-ci, 255-ci)
+
     np[m] = (0, 255, 0)
     np[h] = (255, 0, 0)
 
