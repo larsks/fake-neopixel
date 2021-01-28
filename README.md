@@ -6,7 +6,7 @@ API-compatible with the [MicroPython][] [`neopixel` module][neopixel].
 The `NeoPixel` class creates a horizontal array of LEDs, while the
 `NeoPixelRing` class creates a ring.
 
-See [example.py](example.py) for example usage.
+![Example of NeoPixelRing](images/cycle.gif)
 
 ## Requirements
 
