@@ -17,7 +17,7 @@ while True:
         np[(s-i) % 60] = (0, 255-ci, 255-ci)
 
     np[m] = (0, 255, 0)
-    np[h] = (255, 0, 0)
+    np[(h*5) % 60] = (255, 0, 0)
 
     np.write()
     time.sleep(0.5)
